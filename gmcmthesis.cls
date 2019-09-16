@@ -316,44 +316,42 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \renewcommand\thesubsection{\arabic{section}\thinspace.\thinspace\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
 \renewcommand\section{\@startsection{section}{1}{\z@}%
- 	{1.1ex \@plus -1ex \@minus -.2ex}%
-	{1.1ex \@plus.2ex}%
+ 	{0.5ex \@plus 0.5ex}%
+	{0.5ex \@plus 0.5ex}%
 	{\bfseries\centering\zihao{4}}}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-	{1.1ex \@plus -1ex \@minus -.2ex}%
-	{1.1ex \@plus .2ex}%
+	{0.5ex \@plus 0.5ex}%
+	{0.5ex \@plus 0.5ex}%
 	{\normalfont\normalsize}}
 \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
-	{1.1ex \@plus -1ex \@minus -.2ex}%
-	{1.1ex \@plus .2ex}%
+	{0.5ex \@plus 0.5ex}%
+	{0.5ex \@plus 0.5ex}%	
 	{\normalfont\normalsize}}
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
-	{3.25ex \@plus1ex \@minus.2ex}%
-	{-1em}%
+	{0.5ex \@plus 0.5ex}%
+	{0.5ex \@plus 0.5ex}%
 	{\normalfont\normalsize}}
 \renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
-	 {3.25ex \@plus1ex \@minus .2ex}%
-	 {-1em}%
+	 {0.5ex \@plus 0.5ex}%
+	 {0.5ex \@plus 0.5ex}%
 	 {\normalfont\normalsize\bfseries}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Define new environment and command
 %% 摘要两个字设置为 4 号.
 %% 定义摘要环境
-%\newcommand*{\gmcm@cap@abstractname}{摘要： }
-
 \renewenvironment{abstract}{%
 \if@twocolumn
-		\section*{\abstractname}%
+		\section*{\gmcm@cap@abstractname}%
 	\else
 	 \begin{center}%
-	{\zihao{3}\lishu\abstractname{:}\vspace{\z@}}%
+	{\zihao{3}\lishu\gmcm@cap@abstractname\vspace{\z@}}%
 	 \end{center}%
  	 \quotation
 	\fi}
 	{\if@twocolumn\else\endquotation\newpage\null\fi}
 \renewenvironment{quotation}
-	{\list{}{\listparindent 3em%
+	{\list{}{\listparindent 2em%
 	 \itemindent \listparindent
 	 \rightmargin\z@
 	 \leftmargin\z@
@@ -402,7 +400,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand*{\gmcm@cap@proof}{证明}
 \newcommand*{\gmcm@cap@solution}{解}
  %%%  中文标题名称
-\newcommand*{\gmcm@cap@abstractname}{摘要： }
+\newcommand*{\gmcm@cap@abstractname}{摘\qquad\quad 要： }
  %%%  中文关键字
 \newcommand*{\gmcm@cap@keywordsname}{关键字}
 
@@ -416,14 +414,16 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 %设置目录格式
 % 节的目录格式
-\titlecontents{section}[0pt]{\vspace{2mm}\bfseries}
-{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+\titlecontents{section}[0pt]{\vspace{2mm}}
+{\thecontentslabel}{}{\titlerule*[0.5pc]{.}\contentspage}
 % 小节的目录格式
 \titlecontents{subsection}[30pt]{\songti}
-{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+{\thecontentslabel}{}{\titlerule*[0.5pc]{.}\contentspage}
 
 \titlecontents{subsubsection}[55pt]{\songti}
-{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+{\thecontentslabel}{}{\titlerule*[0.5pc]{.}\contentspage}
+\titlecontents{subsubsubsection}[55pt]{\songti}
+{\thecontentslabel}{}{\titlerule*[0.5pc]{.}\contentspage}
 
 \pagestyle{plain}
 \endinput
